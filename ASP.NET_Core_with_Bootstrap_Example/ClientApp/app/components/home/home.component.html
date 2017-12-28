@@ -1,0 +1,111 @@
+<h2>Hi, this is a sample project to demonstrate how to correctly load <strong>ngx-bootstrap</strong> package in a ASP.NET Core 2.0 project.</h2>
+<br />
+<alert type="success" dismissible="true">
+    <b>Congratulations</b>, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great! <br />
+    Now click the <b>[x]</b> button on right side to close this alert.
+</alert>
+<br />
+<ul>
+    <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
+    <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
+    <li><a href='https://webpack.github.io/'>Webpack</a> for building and bundling client-side resources</li>
+    <li><a href='http://getbootstrap.com/'>Bootstrap</a> for layout and styling</li>
+    <li><a href='https://valor-software.com/ngx-bootstrap/#/'>Angular Bootstrap</a> for Angular ready (!) layout and styling</li>
+</ul>
+<p>To help you get started, we've also set up:</p>
+<ul>
+    <li><strong>Client-side navigation</strong>. For example, click <em>Counter</em> then <em>Back</em> to return here.</li>
+    <li><strong>Server-side prerendering</strong>. For faster initial loading and improved SEO, your Angular app is prerendered on the server. The resulting HTML is then transferred to the browser where a client-side copy of the app takes over.</li>
+    <li><strong>Webpack dev middleware</strong>. In development mode, there's no need to run the <code>webpack</code> build tool. Your client-side resources are dynamically built on demand. Updates are available as soon as you modify any file.</li>
+    <li><strong>Hot module replacement</strong>. In development mode, you don't even need to reload the page after making most changes. Within seconds of saving changes to files, your Angular app will be rebuilt and a new instance injected is into the page.</li>
+    <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>
+    <li><strong><a href="https://github.com/valor-software/ngx-bootstrap">Angular Bootstrap Github</a></strong>. Best way to quickly integrate Bootstrap 3 or Bootstrap 4 Components with Angular.</li>
+</ul>
+<hr />
+<h3>ngx-bootstrap installation steps:</h3>
+
+<p>This is all about the client app only, and has pretty nothing to do with the ASP.Net Core project. The only difference compared to a stock <a href="https://cli.angular.io/">angular-cli</a> generated project is that it has a little different folder structure and file naming. </p>
+
+<ol>
+    <li>
+        Fire up <b>Visual Studio 2017</b> and create a new project from the <b>ASP.Net Core Web Application</b> template. <br />
+        In the template options select <b>Angular</b>.
+    </li>
+    <li>
+        <strong>Add ngx-bootstrap to package.json</strong>, which is in the project root's folder. (To learn more about npm packages and package.json file, check <a href="https://docs.npmjs.com/files/package.json">the npm docs</a>.)<br />
+        If the <b>bootstrap</b> package is not included yet (but it is in this template), add that too, because it is prerequisite. <br />
+        Since this project template contains webpack integration out of the box, it will find our newly added packages automatically, and so we do not need to modify the webpack config file to include them. This is just cool.
+        <br />
+
+        <pre class="pre-scrollable">
+...
+"bootstrap": "3.3.7",
+<b>"ngx-bootstrap": "2.0.0-rc.0",</b>
+"css": "2.2.1",
+...
+        </pre>
+    </li>
+    <li>
+        <strong>Import whichever modules you want to use in app.module.shared.ts</strong> (<i>~\ClientApp\app\components\app.module.shared.ts</i>). <br />
+        <pre class="pre-scrollable">
+// Load as many modules as you want to use. 
+// For demonstration purposes, I load AlertModule only.
+<b>import &#123;</b>
+        <b>AlertModule, </b>
+    //AccordionModule,
+    //ButtonsModule,
+    //CarouselModule,
+    //CollapseModule,
+    //BsDatepickerModule,
+    //BsDropdownModule,
+    //ModalModule,
+    //PaginationModule,
+    //ProgressbarModule,
+    //SortableModule,
+    //TabsModule,
+    //TimepickerModule,
+    //TooltipModule,
+    //TypeaheadModule
+<b>&#125; from 'ngx-bootstrap';</b>
+        </pre>
+    </li>
+    <li>
+        <strong>Add the above imported modules to the AppModule's imports collection by calling their forRoot() function:</strong>. <br />
+
+        <pre class="pre-scrollable">
+imports: [
+    CommonModule,
+    HttpModule,
+    FormsModule,
+
+    // Bootstrap ----------------------------
+        <b>AlertModule.forRoot(),</b>
+    //AccordionModule.forRoot(),
+    //ButtonsModule.forRoot(),
+    //...
+    //TooltipModule.forRoot()
+    //---------------------------------------
+
+    //...
+
+    RouterModule.forRoot([
+        &#123; path: '', redirectTo: 'home', pathMatch: 'full' &#125;,
+        &#123; path: 'home', component: HomeComponent &#125;,
+        &#123; path: 'counter', component: CounterComponent &#125;,
+        &#123; path: 'fetch-data', component: FetchDataComponent &#125;,
+        &#123; path: '**', redirectTo: 'home' &#125;
+])
+        </pre>
+    </li>
+    <li>
+        <strong>Start using them in Components</strong>. <br />
+        E.g. add an <b>&lt;alert&gt;</b> tag in the home component template of your client app under <i>~\ClientApp\app\components\home\home.component.html</i> file. <br />
+        <pre class="pre-scrollable">
+<b>&lt;alert type="success" dismissible="true"&gt;&lt;br /&gt;</b>
+    &lt;b>Congratulations&lt;/b&gt;&lt;/br&gt;, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great!&lt;br /&gt;
+    Now click the &lt;b>[x]&lt;/b&gt; button on right side to close this alert.
+<b>&lt;/alert&gt;</b>
+        </pre>
+    </li>
+
+</ol>
