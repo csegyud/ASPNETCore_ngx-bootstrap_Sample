@@ -141,7 +141,7 @@ file. Etc.
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     <alert type="success" dismissible="true"><br />
-        <b>Congratulations</b></br>, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great!<br />
+        <b>Congratulations</b><br />, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great!<br />
         Now click the <b>[x]</b> button on right side to close this alert.
     </alert>
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
