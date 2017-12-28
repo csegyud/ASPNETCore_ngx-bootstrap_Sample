@@ -1,4 +1,4 @@
-Load **ngx-bootstrap** package in an ASP .NET Core 2.0 project
+Load **ngx-bootstrap** package in an ASP .NET Core 2.0 project.
 ==============================================================
 
 This is a sample project to demonstrate how to correctly load ngx-bootstrap
@@ -17,7 +17,7 @@ local machine for development and testing purposes.
 For running this sample project, you will need
 
 -   any edition of [Visual Studio 2017
-    ](https://www.visualstudio.com/downloads/) (includes .NET core SDK 2.0)
+    ](https://www.visualstudio.com/downloads/) (includes .NET core SDK 2.0) 
 
  
 
