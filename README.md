@@ -1,8 +1,6 @@
 Load **ngx-bootstrap** package in an ASP .NET Core 2.0 project.
 ===============================================================
 
- 
-
 This is a sample project to demonstrate how to correctly load ngx-bootstrap
 package in an ASP .NET Core 2.0 project.
 
