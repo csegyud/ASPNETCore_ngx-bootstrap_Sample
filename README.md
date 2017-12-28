@@ -44,9 +44,19 @@ ASP.Net Core project. The only difference compared to a
 stock [angular-cli](https://cli.angular.io/) generated project is that it has a
 little different folder structure and file naming.
 
+E.g. the *package.json* file is in the root folder of the ASP.NET project, not
+in the angular app’s root, or the Visual Studio approach does not have an *src*
+folder under the *ClientApp* structure. The *app.module* file is also split into
+chunks to manage shared code in *app.shared.module.ts*, browser specific code in
+*app.module.browser.ts*, and server specific code in *app.module.server.ts*
+file. Etc.
+
+ 
+
 1.  Fire up **Visual Studio 2017** and create a new project from the **ASP.Net
     Core Web Application** template.   
-    In the template options select **Angular**.
+    In the template options select **Angular**.  
+    
 
 2.  **Add ngx-bootstrap to package.json**, which is in the project root's
     folder. (To learn more about npm packages and package.json file, check [the
@@ -55,8 +65,7 @@ little different folder structure and file naming.
     template), add that too, because it is prerequisite.   
     Since this project template contains webpack integration out of the box, it
     will find our newly added packages automatically, and so we do not need to
-    modify the webpack config file to include them. This is just cool.   
-    
+    modify the webpack config file to include them. This is just cool. 
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ...
@@ -64,12 +73,12 @@ little different folder structure and file naming.
     "ngx-bootstrap": "2.0.0-rc.0",
     "css": "2.2.1",
     ...
-            
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-3.  **Import whichever modules you want to use in
-    app.module.shared.ts** (*\~\\ClientApp\\app\\components\\app.module.shared.ts*).   
-    
+ 
+
+1.  **Import whichever modules you want to use in
+    app.module.shared.ts** (*\~\\ClientApp\\app\\components\\app.module.shared.ts*). 
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     // Load as many modules as you want to use. 
@@ -91,12 +100,12 @@ little different folder structure and file naming.
         //TooltipModule,
         //TypeaheadModule
     } from 'ngx-bootstrap';
-            
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-4.  **Add the above imported modules to the AppModule's imports collection by
-    calling their forRoot() function:**.   
-    
+ 
+
+1.  **Add the above imported modules to the AppModule's imports collection by
+    calling their forRoot() function:**. 
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     imports: [
@@ -121,12 +130,15 @@ little different folder structure and file naming.
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }
     ])
-            
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-5.  **Start using them in Components**.   
+ 
+
+1.  **Start using them in Components**.   
     E.g. add an **\<alert\>** tag in the home component template of your client
     app under *\~\\ClientApp\\app\\components\\home\\home.component.html* file.   
+    **Note** that you do not need to import Bootstrap modules in your component
+    ts file!  
     
 
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -134,7 +146,6 @@ little different folder structure and file naming.
         <b>Congratulations</b></br>, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great!<br />
         Now click the <b>[x]</b> button on right side to close this alert.
     </alert>
-            
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
  

@@ -24,7 +24,12 @@
 <hr />
 <h3>ngx-bootstrap installation steps:</h3>
 
-<p>This is all about the client app only, and has pretty nothing to do with the ASP.Net Core project. The only difference compared to a stock <a href="https://cli.angular.io/">angular-cli</a> generated project is that it has a little different folder structure and file naming. </p>
+<p>
+    This is all about the client app only, and has pretty nothing to do with the ASP.Net Core project. The only difference compared to a stock <a href="https://cli.angular.io/">angular-cli</a> generated project is that it has a little different folder structure and file naming. 
+</p>
+<p>
+    E.g. the *package.json* file is in the root folder of the ASP.NET project, not in the angular app’s root, or the Visual Studio approach does not have an *src* folder under the *ClientApp* structure. The *app.module* file is also split into chunks to manage shared code in *app.shared.module.ts*, browser specific code in *app.module.browser.ts*, while server specific code in *app.module.server.ts* file. Etc.
+</p>
 
 <ol>
     <li>
@@ -70,7 +75,7 @@
         </pre>
     </li>
     <li>
-        <strong>Add the above imported modules to the AppModule's imports collection by calling their forRoot() function:</strong>. <br />
+        <strong>In the same file, add the above imported modules to the AppModule's imports collection by calling their forRoot() function:</strong>. <br />
 
         <pre class="pre-scrollable">
 imports: [
@@ -99,7 +104,9 @@ imports: [
     </li>
     <li>
         <strong>Start using them in Components</strong>. <br />
-        E.g. add an <b>&lt;alert&gt;</b> tag in the home component template of your client app under <i>~\ClientApp\app\components\home\home.component.html</i> file. <br />
+        E.g. add an <b>&lt;alert&gt;</b> tag in the home component template under <i>~\ClientApp\app\components\home\home.component.html</i> file. <br />
+        <b>Note</b> that you do not need to import Bootstrap modules in your component ts file!
+
         <pre class="pre-scrollable">
 <b>&lt;alert type="success" dismissible="true"&gt;&lt;br /&gt;</b>
     &lt;b>Congratulations&lt;/b&gt;&lt;/br&gt;, ngx-bootstrap package was loaded successfully. This alert is shown by the package. Great!&lt;br /&gt;
